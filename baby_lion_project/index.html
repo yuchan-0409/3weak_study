@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>아기 사자 자기소개 명단</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <section class="panel controls" aria-label="명단 조작 컨트롤">
+      <button id="toggleFormBtn" class="btn btn-primary" type="button">아기 사자 추가</button>
+      <button id="deleteLastBtn" class="btn btn-danger" type="button">마지막 아기 사자 삭제</button>
+      <p class="count-text" aria-live="polite">총 <strong id="memberCount">0</strong>명</p>
+    </section>
+
+    <section id="formPanel" class="panel form-panel hidden" aria-label="아기 사자 추가 폼">
+      <form id="lionForm" novalidate>
+        <div class="form-grid">
+          <label class="field">
+            <span>이름</span>
+            <input id="name" name="name" type="text" placeholder="예: 좋아기사자" required />
+          </label>
+
+          <label class="field">
+            <span>파트</span>
+            <select id="part" name="part" required>
+              <option value="">파트를 선택하세요</option>
+              <option value="Frontend">Frontend</option>
+              <option value="Backend">Backend</option>
+              <option value="Design">Design</option>
+            </select>
+          </label>
+
+          <label class="field wide">
+            <span>관심 기술 <em>(쉼표로 구분)</em></span>
+            <input id="skills" name="skills" type="text" placeholder="예: JavaScript, React, HTML/CSS" required />
+          </label>
+
+          <label class="field wide">
+            <span>한 줄 소개 <em>(요약 카드용)</em></span>
+            <input id="shortIntro" name="shortIntro" type="text" placeholder="예: 3주차 DOM 조작 연습 중!" required />
+          </label>
+
+          <label class="field wide">
+            <span>자기소개 <em>(상세 카드)</em></span>
+            <textarea id="bio" name="bio" rows="5" placeholder="예: HTML/CSS로 구조를 만들고, JS로 데이터를 바꾸면 화면이 바뀌는 경험을 하고 있습니다." required></textarea>
+          </label>
+
+          <label class="field">
+            <span>Email</span>
+            <input id="email" name="email" type="email" placeholder="예: lion@example.com" required />
+          </label>
+
+          <label class="field">
+            <span>Phone</span>
+            <input id="phone" name="phone" type="tel" placeholder="예: 010-1234-5678" required />
+          </label>
+
+          <label class="field wide">
+            <span>Website</span>
+            <input id="website" name="website" type="url" placeholder="예: https://example.com" required />
+          </label>
+
+          <label class="field wide">
+            <span>한 마디</span>
+            <input id="message" name="message" type="text" placeholder="예: 데이터 바꾸면 화면도 바뀐다!" required />
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">추가하기</button>
+          <button id="cancelBtn" class="btn btn-ghost" type="button">취소</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel list-panel" aria-label="아기 사자 카드 목록">
+      <div id="cardGrid" class="card-grid"></div>
+    </section>
+
+    <section class="details-section" aria-label="아기 사자 상세 자기소개 목록">
+      <div id="detailList" class="detail-list"></div>
+    </section>
+  </main>
+</body>
+</html>
